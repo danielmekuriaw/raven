@@ -15,4 +15,9 @@ class Ticket < ActiveRecord::Base
     belongs_to :airline
     belongs_to :user
 
+    def all_ticket_prices
+        puts "HAPPENED!!!"
+      puts  Ticket.all.prices
+    end
+
 end
