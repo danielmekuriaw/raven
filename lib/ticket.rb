@@ -20,4 +20,13 @@ class Ticket < ActiveRecord::Base
       puts  Ticket.all.prices
     end
 
+    def ticket_information
+        # puts "User Id:" + self.user_id.to_s
+        puts "Airlines Id: " + self.airlines_id.to_s
+        puts "Prices: $" + self.prices.to_f.to_s
+        puts "Ticket Number: " + self.ticket_number.to_s
+        puts "Baggage: " + self.baggage.to_s
+        puts "-----------------------------------------"
+    end
+
 end

@@ -38,18 +38,21 @@ class User < ActiveRecord::Base
         puts "What is your purpose of travel?"
         purpose_of_travel = gets.chomp
        
-        User.create(first_name: first_name, last_name: last_name, employment_status: employment_status, age: age, purpose_of_travel: purpose_of_travel)
+        @@current_user = User.create(first_name: first_name, last_name: last_name, employment_status: employment_status, age: age, purpose_of_travel: purpose_of_travel)
     end
 
     def my_tickets
-        puts Ticket.all.select{
-            |ticket| ticket.user_id == self.id
-        }
+         Ticket.all.select{
+            |ticket| ticket.user_id == self.id}.map{ |ticket| ticket.ticket_information}
     end
+
+    
 
     def self.current_user
         @@current_user
     end
+
+    
 
     def profile
         puts "First Name: " + self.first_name 
@@ -58,6 +61,23 @@ class User < ActiveRecord::Base
         puts "Employment Status: " + self.employment_status
         puts "Purpose of Travel: " + self.purpose_of_travel
     end
+
+    def purchase_ticket(airlines_id)
+    #     @prices = prices #random auto generate
+    #     @ticket_number = ticket_number #AUTO GENERATED
+    #     @baggage = baggage #USer inputs
+
+        #answer = Interface.prompt.select("Hi #{self.first_name}! Pick an Airline") do |menu|
+            #menu.choice "Purchase a ticket", -> {}
+
+
+        puts "Baggage amount: "
+        baggage_amount = gets.chomp
+
+        ticket = Ticket.new({:user_id => self.id, :airlines_id => airlines_id, :prices => rand(1..5000), :ticket_number =>Faker::IDNumber.valid, :baggage => baggage_amount})
+        ticket.save
+    end
+
 
     
 end
