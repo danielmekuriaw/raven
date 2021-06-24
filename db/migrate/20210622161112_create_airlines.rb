@@ -4,9 +4,9 @@ class CreateAirlines < ActiveRecord::Migration[6.1]
       t.string :name
       t.integer :number_of_destinations
       t.string :localized
-      t.string :description
-      t.integer :ratings
-      t.string :reviews
+      t.string :description #DO before baggage prompt
+      # t.integer :ratings
+      # t.string :reviews
     end
   end
 end

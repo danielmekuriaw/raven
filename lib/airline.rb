@@ -13,7 +13,9 @@ class Airline < ActiveRecord::Base
     #     @reviews = reviews
     # end
 
-    has_many :tickets # gives us a Driver#rides method
-    has_many :users, through: :tickets # gives us a method!!!
+    has_many :tickets
+    has_many :reviews
+    has_many :users, through: :tickets
+    has_many :users, through: :reviews
 
 end

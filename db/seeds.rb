@@ -4,12 +4,14 @@ puts "Delete airlines!"
 Airline.destroy_all
 puts "Delete users!"
 User.destroy_all
+puts "Delete reviews!"
+Review.destroy_all
 
 
 puts "Creating airlines..."
 
 30.times do
-  Airline.create(name: Faker::Company.name, number_of_destinations: rand(1..200), ratings: rand(0..10), localized: ["domestic", "international"].sample, reviews: Faker::Quote.famous_last_words, description: Faker::Quote.most_interesting_man_in_the_world)
+  Airline.create(name: Faker::Company.name, number_of_destinations: rand(1..200), localized: ["domestic", "international"].sample,  description: Faker::Quote.most_interesting_man_in_the_world)
 end
 
 puts "Done creating airlines!"
@@ -29,7 +31,20 @@ puts "Done creating users!"
 puts "Creating tickets.."
 
 60.times do
-  Ticket.create(user_id: User.ids.sample, airlines_id: Airline.ids.sample, prices: rand(1..5000), ticket_number: Faker::IDNumber.valid, baggage: rand(0..200))
+  Ticket.create(user_id: User.ids.sample, airline_id: Airline.ids.sample, price: rand(1..5000), ticket_number: Faker::IDNumber.valid, baggage: rand(0..200),
+  origin: Faker::Address.country_code_long, destination: Faker::Address.country_code_long, departure_time: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now, format: :long), arrival_time: Faker::Time.between(from: DateTime.now + 1, to: DateTime.now + 2, format: :long),
+  date_of_travel: Faker::Date.between(from: '2021-09-23', to: '2022-09-25').to_s, duration_of_flight: rand(1..24))
 end
 
 puts "Done creating tickets.."
+
+# Reviews
+
+120.times do
+
+  Review.create(user_id: User.ids.sample, airline_id: Airline.ids.sample, rating: rand(0..10), description_of_review: Faker::Company.catch_phrase)
+end
+
+  puts "Done creating reviews.."
+
+ 
