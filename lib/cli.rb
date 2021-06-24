@@ -28,9 +28,6 @@ attr_accessor :prompt, :user
         end
     end
 
-    def user
-    end
-
     def main_menu
         answer = self.prompt.select("Main Menu") do |menu|
             menu.choice "Profile", -> {User.current_user.profile} #DONE
@@ -39,7 +36,6 @@ attr_accessor :prompt, :user
             menu.choice "Cancel Ticket", -> {self.cancel_ticket_interface} #DONE
             menu.choice "All Airlines", -> {self.all_airlines_interface} #DONE #Search airline
             menu.choice "All Prices", -> {self.all_prices_interface} #DONE
-            # menu.choice "Reviews", -> {self.reviews_interface} #DONE
             menu.choice "Add a Review", -> {self.add_review_interface} #DONE
             menu.choice "Delete Account", -> {self.delete_user_interface} #DONE
             menu.choice "Log Out", -> {Interface.new.new_or_returning} #DONE
@@ -57,8 +53,8 @@ attr_accessor :prompt, :user
         end
     end
 
-    def purchase_success_interface(ticket)
-        success_box = TTY::Box.success("Ticket Purchased Successfully!")
+    def success_interface(sentence)
+        success_box = TTY::Box.success(sentence)
         print success_box
     end
 
@@ -89,22 +85,6 @@ attr_accessor :prompt, :user
 
     end
 
-    def reviews_interface #SHOULD BE ALTERED ONCE TEH REVIEWS CLASS IS CONSTRUCTED
-
-        table = TTY::Table.new(header: ["Airlines", "Reviews"]) do |t|
-            Airline.all.each{
-                |airline|
-                airline_attributes_array = Array.new 
-                airline_attributes_array << airline.name
-                airline_attributes_array << airline.reviews.description_of_review
-                t << airline_attributes_array
-            }
-            
-          end
-
-        puts table.render(:ascii, alignments: [:center, :left])
-    end
-
     def all_prices_interface
         table = TTY::Table.new(header: ["Airlines", "Prices"]) do |t|
             Ticket.all.each{
@@ -116,7 +96,7 @@ attr_accessor :prompt, :user
             }
         end
 
-            puts table.render(:ascii, alignments: [:center, :center])
+    puts table.render(:ascii, alignments: [:center, :center])
     end
 
     def cancel_ticket_interface
@@ -124,23 +104,18 @@ attr_accessor :prompt, :user
         answer = self.prompt.select("Hi #{User.current_user.first_name}! Select one of your tickets.") do |menu|
             User.current_user.my_tickets.map{
                 |ticket|
-                menu.choice ticket.ticket_info, -> {ticket.cancel_ticket}
+                menu.choice ticket.ticket_info, -> {ticket.cancel_ticket(self)}
             }
                 menu.choice "Cancel", -> {self.main_menu}
         end
-    end
 
+    end
 
     def delete_user_interface
             answer = self.prompt.select("Hi #{User.current_user.first_name}! Click below to delete your account..") do |menu|
-                menu.choice "Delete Account", -> {User.current_user.delete_user}
+                menu.choice "Delete Account", -> {User.current_user.delete_user(self)}
                 menu.choice "Cancel", -> {self.main_menu}
             end
-    end
-
-    def self.cancel_success_interface
-        success_box = TTY::Box.success("Ticket Cancelled Successfully!")
-        print success_box
     end
 
     def airline_description_interface(airline_id)
@@ -149,7 +124,7 @@ attr_accessor :prompt, :user
         }
         puts a1[0].name
         puts a1[0].description
-        puts "----------------------------------"
+        puts "------------------------------------------------"
         
         reviews_of_an_airline = Review.all.select{
             |review| review.airline_id == airline_id
@@ -177,10 +152,4 @@ attr_accessor :prompt, :user
                 menu.choice "Cancel", -> {self.main_menu}
         end
     end
-
-    def self.review_success_interface
-        success_box = TTY::Box.success("Review added successfully!")
-        print success_box
-    end
-
 end

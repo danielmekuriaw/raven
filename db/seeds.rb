@@ -11,7 +11,7 @@ Review.destroy_all
 puts "Creating airlines..."
 
 30.times do
-  Airline.create(name: Faker::Company.name, number_of_destinations: rand(1..200), localized: ["domestic", "international"].sample,  description: Faker::Quote.most_interesting_man_in_the_world)
+  Airline.create(name: Faker::Company.name, number_of_destinations: rand(1..200), localized: ["domestic", "international"].sample,  description: Faker::Company.catch_phrase)
 end
 
 puts "Done creating airlines!"

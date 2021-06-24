@@ -1,19 +1,10 @@
 class User < ActiveRecord::Base
 
-    # def initialize(first_name, last_name, employment_status, age, purpose_of_travel)
-    #     # @first_name = first_name
-    #     # @last_name = last_name
-    #     # @employment_status = employment_status
-    #     # @age = age
-    #     # @purpose_of_travel = purpose_of_travel
-    # end
-
-
     @@current_user = nil
 
     has_many :tickets
-    has_many :reviews # gives us a method!!!! 
-    has_many :airlines, through: :tickets # also gives us a method :D Passenger#drivers
+    has_many :reviews 
+    has_many :airlines, through: :tickets 
     has_many :airlines, through: :reviews
 
     def self.handle_returning_user
@@ -95,7 +86,7 @@ class User < ActiveRecord::Base
         :origin => origin, :destination => destination, :departure_time => departure_time, :arrival_time => arrival_time, :date_of_travel => date_of_travel})
         ticket.save
 
-        cli.purchase_success_interface(ticket)
+        cli.success_interface("Ticket Purchased Successfully!")
     end
 
     def add_review(airline_id, cli, airline)
@@ -108,11 +99,12 @@ class User < ActiveRecord::Base
 
         review = Review.new({:user_id => self.id, :airline_id => airline_id, :description_of_review => review_desc, :rating => rating})
         review.save
-        Interface.review_success_interface
+        cli.success_interface("Review added successfully!")
     end
     
-    def delete_user
+    def delete_user(cli)
         deletion = self.destroy
+        cli.success_interface("Your account has been deleted!")
         exit        
     end
 

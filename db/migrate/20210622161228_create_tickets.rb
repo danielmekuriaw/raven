@@ -12,13 +12,6 @@ class CreateTickets < ActiveRecord::Migration[6.1]
       t.string :arrival_time 
       t.string :date_of_travel
       t.string :duration_of_flight 
-      # Origin
-      # Destination
-      # Departure Time
-      # Arrival Time
-      # Duration of flight
-      # Modify Reviews
-      # Create a migration for reviews --> migrate it
     end
   end
 end

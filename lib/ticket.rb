@@ -1,16 +1,5 @@
-#  user_id(integer, foreign key), Airline_id(integer, foreign key), prices (integer), ticket_number (integer), baggage (integer)
 class Ticket < ActiveRecord::Base
 
-    # attr_reader :user_id, :airline_id
-    # attr_accessor :prices, :ticket_number, :baggage
-
-    # def initialize(user_id, airline_id, price, ticket_number, baggage)
-    #     @user_id = user_id
-    #     @airline_id = airline_id
-    #     @price = price
-    #     @ticket_number = ticket_number
-    #     @baggage = baggage
-    # end
 
     belongs_to :airline
     belongs_to :user
@@ -29,7 +18,7 @@ class Ticket < ActiveRecord::Base
         departure_time = "Departure Time:" + self.departure_time
         arrival_time = "Arrival Time: " + self.arrival_time
         date_of_travel = "Date of Travel: " + self.date_of_travel
-        #duration_of_flight = "Duration of Flight: " + self.duration_of_flight
+        
 
         ticket_box = TTY::Box.frame "Raven",separator, space, name, id, space, price, separator, separator, tick_num, separator, separator, baggage,
         space, origin, destination, separator, departure_time, arrival_time, separator, date_of_travel, padding: 1, align: :center
@@ -50,9 +39,9 @@ class Ticket < ActiveRecord::Base
        
     end
 
-    def cancel_ticket 
+    def cancel_ticket(cli) 
         self.destroy
-        Interface.cancel_success_interface
+        cli.success_interface("Ticket Cancelled Successfully!")
     end
 
     
