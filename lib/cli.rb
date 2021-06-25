@@ -48,7 +48,6 @@ attr_accessor :prompt, :user
     end
 
     def purchase_ticket_interface
-
         answer = self.prompt.select("Hi #{User.current_user.first_name}! Pick an Airline") do |menu|
             Airline.all.map{
                 |airline|
@@ -71,11 +70,9 @@ attr_accessor :prompt, :user
     end
 
     def all_airlines_interface
-
         table = TTY::Table.new(header: ["ID", "Airlines", "Num. of Dest.", "Type"]) do |t|
             Airline.all.each{
                 |airline|
-
                 airline_attributes_array = Array.new 
                 airline_attributes_array << airline.id
                 airline_attributes_array << airline.name
@@ -83,11 +80,8 @@ attr_accessor :prompt, :user
                 airline_attributes_array << airline.localized.capitalize()
                 t << airline_attributes_array
             }
-            
           end
-
         puts table.render(:ascii, alignments: [:center, :center, :center, :center, :center])
-
     end
 
     def all_prices_interface

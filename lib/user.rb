@@ -1,27 +1,23 @@
 class User < ActiveRecord::Base
 
-    @@current_user = nil
-
     has_many :tickets
     has_many :reviews 
     has_many :airlines, through: :tickets 
     has_many :airlines, through: :reviews
+
+    @@current_user = nil
 
     def self.handle_returning_user
         puts "First Name: "
         first_name = gets.chomp
         puts "Last Name: "
         last_name = gets.chomp
-
         if User.find_by(first_name: first_name, last_name: last_name)
             selected_user = User.find_by(first_name: first_name, last_name: last_name)
         else 
             selected_user = nil
         end
-        
         @@current_user = selected_user
-
-        return @@current_user
     end
 
     def self.handle_new_user(cli)
@@ -40,7 +36,6 @@ class User < ActiveRecord::Base
     end
 
     def self.current_user=(val)
-        puts @@current_user
         @@current_user = val
     end
 
@@ -53,13 +48,9 @@ class User < ActiveRecord::Base
            |ticket| ticket.user_id == self.id}
     end
 
-    
-
     def self.current_user
         @@current_user
     end
-
-    
 
     def profile
         puts "-----------------------------------------"

@@ -1,6 +1,5 @@
 class Ticket < ActiveRecord::Base
 
-
     belongs_to :airline
     belongs_to :user
 
@@ -17,7 +16,6 @@ class Ticket < ActiveRecord::Base
         destination = "Destination: " + self.destination
         departure_time = "Departure Time:" + self.departure_time
         arrival_time = "Arrival Time: " + self.arrival_time
-        #date_of_travel = "Date of Travel: " + self.date_of_travel
         
 
         ticket_box = TTY::Box.frame "Raven",separator, space, name, id, space, price, separator, separator, tick_num, separator, separator, baggage,
