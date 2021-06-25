@@ -20,10 +20,15 @@ attr_accessor :prompt, :user
         puts "Welcome to Raven! A new innovative way to purchase and manage your plane tickets!"
     end
 
+    def user
+        system "clear"
+        @@current_user = nil
+    end
+
     def new_or_returning
         answer = self.prompt.select("Are you a new or returning user?") do |menu|
             menu.choice "New User", -> {User.handle_new_user(self)}
-            menu.choice "Returning User", -> {User.handle_returning_user}
+            menu.choice "Returning User", -> {return User.handle_returning_user}
             menu.choice "Exit", -> {exit}
         end
     end
@@ -38,7 +43,7 @@ attr_accessor :prompt, :user
             menu.choice "All Prices", -> {self.all_prices_interface} #DONE
             menu.choice "Add a Review", -> {self.add_review_interface} #DONE
             menu.choice "Delete Account", -> {self.delete_user_interface} #DONE
-            menu.choice "Log Out", -> {Interface.new.new_or_returning} #DONE
+            menu.choice "Log Out", -> {exit} #DONE
         end
     end
 

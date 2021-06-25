@@ -13,9 +13,15 @@ class User < ActiveRecord::Base
         puts "Last Name: "
         last_name = gets.chomp
 
-        selected_user = User.find_by(first_name: first_name, last_name: last_name)
-
+        if User.find_by(first_name: first_name, last_name: last_name)
+            selected_user = User.find_by(first_name: first_name, last_name: last_name)
+        else 
+            selected_user = nil
+        end
+        
         @@current_user = selected_user
+
+        return @@current_user
     end
 
     def self.handle_new_user(cli)
@@ -31,6 +37,11 @@ class User < ActiveRecord::Base
         purpose_of_travel = cli.purpose_of_travel_interface
        
         @@current_user = User.create(first_name: first_name, last_name: last_name, employment_status: employment_status, age: age, purpose_of_travel: purpose_of_travel)
+    end
+
+    def self.current_user=(val)
+        puts @@current_user
+        @@current_user = val
     end
 
     def my_tickets_display
