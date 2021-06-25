@@ -98,7 +98,7 @@ ruby bin/run.rb
 
 ### Basic Object-oriented Structure of the App
 
-![alt text](https://github.com/danielmekuriaw/raven/blob/master/oopic.jpeg?raw=true)
+![alt text](https://github.com/danielmekuriaw/raven/blob/master/oopic.jpg)
 
 ## Project Requirements
 
