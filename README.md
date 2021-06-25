@@ -37,18 +37,18 @@ ruby bin/run.rb
 
 ### File Structure
 .
-├── **CONTRIBUTING.md**
-├── **Gemfile**
-├── **Gemfile.lock**
-├── **LICENSE.md**
-├── **README.md**
-├── **Rakefile**
-├── **bin**
+├── CONTRIBUTING.md
+├── Gemfile
+├── Gemfile.lock
+├── LICENSE.md
+├── README.md
+├── Rakefile
+├── bin
 │   └── run.rb
-├── **config**
+├── config
 │   ├── database.yml
 │   └── environment.rb
-├── **db**
+├── db
 │   ├── development.db
 │   ├── migrate
 │   │   ├── 20210622161112_create_airlines.rb
@@ -57,7 +57,7 @@ ruby bin/run.rb
 │   │   └── 20210624191655_create_review.rb
 │   ├── schema.rb
 │   └── seeds.rb
-└── **lib**
+└── lib
     ├── airline.rb
     ├── cli.rb
     ├── review.rb
