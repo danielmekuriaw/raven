@@ -6,25 +6,25 @@ This project is developed using Ruby, ActiveRecord and SQLite3. For the sake of 
 
 ### Gems
 
-* sinatra-activerecord - for database management
-* sqlite3 - for database management
-* pry - for debugging
-* require_all - for accessing files
-* faker - for generating random data
-* tty-prompt - for accepting user inputs in different formats
-* tty-table - for displaying data in a table
-* tty-box - for displaying data in a box
-* tty-font - for creating the **Raven** logo that appears at the start of the program
+* **sinatra-activerecord** - for accessing databases
+* **sqlite3** - for database management
+* **pry** - for debugging during development
+* **require_all** - for accessing files from within different directories of the program
+* **faker** - for generating random data
+* **tty-prompt** - for accepting user inputs in different formats
+* **tty-table** - for displaying data in a table
+* **tty-box** - for displaying data in a box
+* **tty-font** - for creating the **Raven** logo that appears at the start of the program
 
 ### Setup Instructions
 
 Installing required gems
-```SQL 
+```Ruby 
 bundle install
 ```
 
 In case you run onto an error, try installing each gem individually as follows:
-```SQL
+```Ruby
 gem install 'name_of_gem'
 ```
 
