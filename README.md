@@ -40,8 +40,10 @@ ruby bin/run.rb
 .
 ├── CONTRIBUTING.md
 |
+
 ├── Gemfile
 |
+
 ├── Gemfile.lock
 |
 ├── LICENSE.md
