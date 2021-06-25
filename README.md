@@ -96,9 +96,9 @@ ruby bin/run.rb
 
     └── user.rb
 
-## Basic Object-oriented Structure of the App
+### Basic Object-oriented Structure of the App
 
-![alt text](C:\Users\16178\Downloads\oopic.jpeg)
+![alt text](https://github.com/danielmekuriaw/raven/blob/master/oopic.jpeg?raw=true)
 
 ## Project Requirements
 
