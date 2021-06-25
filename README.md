@@ -18,6 +18,12 @@ This project is developed using Ruby, ActiveRecord and SQLite3. For the sake of 
 
 ### Setup Instructions
 
+**NOTE:** *Make sure you have properly installed Ruby on your terminal. Follow the instructions below after verifying that you have correctly installed ruby through the following command*
+
+```Ruby
+ruby --version
+```
+
 Installing required gems
 ```Ruby 
 bundle install
@@ -87,5 +93,5 @@ ruby bin/run.rb
     ├── review.rb
 
     ├── ticket.rb
-    
+
     └── user.rb
