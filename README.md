@@ -37,81 +37,55 @@ ruby bin/run.rb
 
 ### File Structure
 
-.
 
 ├── CONTRIBUTING.md
-|
 
 ├── Gemfile
-|
 
 ├── Gemfile.lock
-|
 
 ├── LICENSE.md
-|
 
 ├── README.md
-|
 
 ├── Rakefile
-|
 
 ├── bin
 
-|   |
 │   └── run.rb
-|
 
 ├── config
 
-|   |
 │   ├── database.yml
 
-|   |
 │   └── environment.rb
-|
 
 ├── db
 
-|   |
 │   ├── development.db
 
-|   |
 │   ├── migrate
 
-|   |   |
 │   │   ├── 20210622161112_create_airlines.rb
 
-|   |   |
 │   │   ├── 20210622161217_create_users.rb
 
-|   |   |
 │   │   ├── 20210622161228_create_tickets.rb
 
-|   |   |
 │   │   └── 20210624191655_create_review.rb
 
-|   |
 │   ├── schema.rb
 
-|   |
 │   └── seeds.rb
 
-|
 └── lib
 
-    |
     ├── airline.rb
 
-    |
     ├── cli.rb
 
-    |
     ├── review.rb
 
-    |
     ├── ticket.rb
     
-    |
     └── user.rb
