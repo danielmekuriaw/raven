@@ -31,7 +31,7 @@ bundle install
 
 In case you run onto an error while calling the command above, try installing each gem individually as follows:
 ```Ruby
-gem install 'name_of_gem'
+gem install name_of_gem
 ```
 
 ### Running the Program
