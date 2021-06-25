@@ -24,7 +24,7 @@ This project is developed using Ruby, ActiveRecord and SQLite3. For the sake of 
 ruby --version
 ```
 
-Installing required gems
+The next step is installing the required gems. This can be done with the following command:
 ```Ruby 
 bundle install
 ```
