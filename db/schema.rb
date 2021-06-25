@@ -36,8 +36,6 @@ ActiveRecord::Schema.define(version: 2021_06_24_191655) do
     t.string "destination"
     t.string "departure_time"
     t.string "arrival_time"
-    t.string "date_of_travel"
-    t.string "duration_of_flight"
   end
 
   create_table "users", force: :cascade do |t|

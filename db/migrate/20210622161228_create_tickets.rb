@@ -9,9 +9,7 @@ class CreateTickets < ActiveRecord::Migration[6.1]
       t.string :origin
       t.string :destination 
       t.string :departure_time
-      t.string :arrival_time 
-      t.string :date_of_travel
-      t.string :duration_of_flight 
+      t.string :arrival_time
     end
   end
 end

@@ -68,14 +68,14 @@ class User < ActiveRecord::Base
         destination =  Faker::Address.country_code_long
         departure_time = Faker::Time.between(from: DateTime.now - 1, to: DateTime.now, format: :long)
         arrival_time = Faker::Time.between(from: DateTime.now + 1, to: DateTime.now + 2, format: :long)
-        date_of_travel =  Faker::Date.between(from: '2021-09-23', to: '2022-09-25')
+        #date_of_travel =  Faker::Date.between(from: '2021-09-23', to: '2022-09-25')
     
         puts "Ticket Number: " + ticket_number
         puts "Origin: " + origin
         puts "Destination: " + destination
         puts "Departure Time: " + departure_time
         puts "Arrival Time: " + arrival_time
-        puts "Date of Travel: " + date_of_travel.to_s
+        #puts "Date of Travel: " + date_of_travel.to_s
        
 
         puts "Baggage amount (kg): "
@@ -83,7 +83,7 @@ class User < ActiveRecord::Base
         baggage_amount = baggage_amount.to_s
 
         ticket = Ticket.new({:user_id => self.id, :airline_id => airline_id, :price => rand(1..5000), :ticket_number =>ticket_number, :baggage => baggage_amount,
-        :origin => origin, :destination => destination, :departure_time => departure_time, :arrival_time => arrival_time, :date_of_travel => date_of_travel})
+        :origin => origin, :destination => destination, :departure_time => departure_time, :arrival_time => arrival_time})
         ticket.save
 
         cli.success_interface("Ticket Purchased Successfully!")
