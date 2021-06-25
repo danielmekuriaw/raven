@@ -19,18 +19,18 @@ This project is developed using Ruby, ActiveRecord and SQLite3. For the sake of 
 ### Setup Instructions
 
 Installing required gems
-'''SQL 
+```SQL 
 bundle install
-'''
+```
 
 In case you run onto an error, try installing each gem individually as follows:
-'''SQL
+```SQL
 gem install 'name_of_gem'
-'''
+```
 
 ### Running the Program
 To run the program, call the following after navigating to the project's directory:
 
-'''Ruby
+```Ruby
 ruby bin/run.rb
-'''
+```
