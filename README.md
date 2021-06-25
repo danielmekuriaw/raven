@@ -1,3 +1,5 @@
+![alt text](https://github.com/danielmekuriaw/raven/blob/master/ravenname.PNG)
+
 # Raven
 
 An innovative way to purchase and manage flight tickets - created by [Daniel Mekuriaw](https://github.com/danielmekuriaw) and [Mohamed Mohamud](https://github.com/Atlmoe6).
