@@ -1,6 +1,6 @@
 # Raven
 
-created by Daniel Mekuriaw and Mohamed Mohamud.
+An innovative way to purchase and manage flight tickets - created by [Daniel Mekuriaw](https://github.com/danielmekuriaw) and [Mohamed Mohamud](https://github.com/Atlmoe6).
 
 This project is developed using Ruby, ActiveRecord and SQLite3. For the sake of simplicity and due to the limited amount of time for development, it makes use of data from the **Faker** Ruby gem outside of accepting direct user inputs.
 
