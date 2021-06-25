@@ -23,14 +23,43 @@ Installing required gems
 bundle install
 ```
 
-In case you run onto an error, try installing each gem individually as follows:
+In case you run onto an error while calling the command above, try installing each gem individually as follows:
 ```Ruby
 gem install 'name_of_gem'
 ```
 
 ### Running the Program
-To run the program, call the following after navigating to the project's directory:
+To run the program, call the following after navigating to the project's directory on your terminal:
 
 ```Ruby
 ruby bin/run.rb
 ```
+
+### File Structure
+.
+├── **CONTRIBUTING.md**
+├── **Gemfile**
+├── **Gemfile.lock**
+├── **LICENSE.md**
+├── **README.md**
+├── **Rakefile**
+├── **bin**
+│   └── run.rb
+├── **config**
+│   ├── database.yml
+│   └── environment.rb
+├── **db**
+│   ├── development.db
+│   ├── migrate
+│   │   ├── 20210622161112_create_airlines.rb
+│   │   ├── 20210622161217_create_users.rb
+│   │   ├── 20210622161228_create_tickets.rb
+│   │   └── 20210624191655_create_review.rb
+│   ├── schema.rb
+│   └── seeds.rb
+└── **lib**
+    ├── airline.rb
+    ├── cli.rb
+    ├── review.rb
+    ├── ticket.rb
+    └── user.rb
